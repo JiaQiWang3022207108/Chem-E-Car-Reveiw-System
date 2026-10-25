@@ -1,0 +1,11 @@
+{
+  "version":"2.0.0",
+  "tasks":[
+    {"label":"初始化本地环境","type":"shell","command":"npm run local:setup","problemMatcher":[]},
+    {"label":"启动本地网站","type":"shell","command":"npm run dev -- --hostname localhost --port 3000","dependsOn":"初始化本地环境","isBackground":true,"problemMatcher":{"pattern":{"regexp":"^$"},"background":{"activeOnStart":true,"beginsPattern":"vinext|Vite","endsPattern":"Local:.*http"}}},
+    {"label":"构建网站","type":"shell","command":"npm run build","group":{"kind":"build","isDefault":true},"problemMatcher":[]},
+    {"label":"运行全部测试","type":"shell","command":"npm test","group":"test","problemMatcher":[]},
+    {"label":"重新编译 C++ 核心","type":"shell","command":"npm run native:build","problemMatcher":[]},
+    {"label":"测试 C++ WASM 核心","type":"shell","command":"npm run native:test","group":"test","problemMatcher":[]}
+  ]
+}

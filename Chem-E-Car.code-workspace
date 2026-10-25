@@ -1,0 +1,4 @@
+{
+  "folders":[{"path":".","name":"Chem-E-Car 赛事资料中心"}],
+  "settings":{"files.encoding":"utf8","files.exclude":{"**/node_modules":true,"**/dist":true,"**/.wrangler":true}}
+}

@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.20)
+project(chemecar_core LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+add_library(edp_core STATIC edp_core.cpp)
+add_executable(core_test tests/core_test.cpp)
+target_link_libraries(core_test PRIVATE edp_core)
+enable_testing()
+add_test(NAME edp_core_rules COMMAND core_test)

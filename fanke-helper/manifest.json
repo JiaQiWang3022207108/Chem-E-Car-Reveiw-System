@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Chem-E-Car 赛事资料采集助手",
+  "version": "1.5.0",
+  "description": "登录后自动采集凡科报名表和 EDP，并从阿里邮箱收件箱读取海报、视频附件及保存回执草稿。",
+  "permissions": ["tabs", "webNavigation", "scripting"],
+  "host_permissions": [
+    "https://*.fkw.com/*",
+    "https://*.faisco.cn/*",
+    "https://*.co99.net/*",
+    "https://chem-e-car-registration.clever-morel-6302.chatgpt.site/*",
+    "https://qiye.aliyun.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Chem-E-Car 赛事资料采集助手"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chem-e-car-registration.clever-morel-6302.chatgpt.site/*",
+        "http://localhost/*"
+      ],
+      "js": ["site-bridge.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://*.fkw.com/*"],
+      "js": ["fanke-scraper.js"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://qiye.aliyun.com/*"],
+      "js": ["alimail-draft.js", "alimail-collector.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "version":"0.2.0",
+  "configurations":[
+    {"name":"网站：运行与调试（Edge）","type":"msedge","request":"launch","url":"http://localhost:3000","webRoot":"${workspaceFolder}","preLaunchTask":"启动本地网站"},
+    {"name":"网站：运行与调试（Chrome）","type":"chrome","request":"launch","url":"http://localhost:3000","webRoot":"${workspaceFolder}","preLaunchTask":"启动本地网站"}
+  ]
+}
